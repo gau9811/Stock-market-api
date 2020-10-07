@@ -41,7 +41,7 @@ function App() {
       y: stocky,
       type: "scatter",
       mode: "lines+markers",
-      marker: { color: "red" },
+      marker: { color: "blue" },
     },
   ];
   const Chart = ({ data }) => {
