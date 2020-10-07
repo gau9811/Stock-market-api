@@ -35,20 +35,18 @@ function App() {
     stocky.push(stock[key]["1. open"]);
   }
 
-  const Chart = () => {
+  var data = [
+    {
+      x: stockx,
+      y: stocky,
+      type: "scatter",
+      mode: "lines+markers",
+      marker: { color: "red" },
+    },
+  ];
+  const Chart = ({ data }) => {
     return (
-      <Plot
-        data={[
-          {
-            x: stockx,
-            y: stocky,
-            type: "scatter",
-            mode: "lines+markers",
-            marker: { color: "red" },
-          },
-        ]}
-        layout={{ width: 1600, height: 440, title: symbol }}
-      />
+      <Plot data={data} layout={{ width: 1600, height: 440, title: symbol }} />
     );
   };
   const input = () => {
@@ -73,7 +71,7 @@ function App() {
         </div>
       </Row>
       <div className="m-auto text-center p-auto">
-        <Chart />
+        <Chart data={data} />
       </div>
     </div>
   );
